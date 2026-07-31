@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Focus or Suffer — le bloqueur de sites qu'on n'arrive pas à désactiver</title>
+    <meta
+      name="description"
+      content="Bloquer un site prend un clic. Le débloquer prend vingt secondes d'attente, une phrase à recopier, trois calculs de tête et deux heures de réflexion. Extension Chrome gratuite."
+    />
+    <meta name="theme-color" content="#0b0818" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Focus or Suffer — bloqueur de distractions" />
+    <meta
+      property="og:description"
+      content="Vous avez déjà désactivé votre bloqueur de sites. Celui-ci est conçu pour rendre ça pénible."
+    />
+    <meta property="og:image" content="img/scene-synthwave.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="img/icon128.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- ═══ Hero ═══════════════════════════════════════════════════ -->
+    <header class="hero">
+      <div class="hero-scene" id="heroScene" aria-hidden="true"></div>
+      <div class="hero-veil" aria-hidden="true"></div>
+
+      <nav class="nav">
+        <span class="nav-brand">
+          <img src="img/icon128.png" alt="" width="24" height="24" />
+          Focus or Suffer
+        </span>
+        <a class="nav-link" href="https://github.com/romlly/focus">Code source</a>
+      </nav>
+
+      <div class="hero-body">
+        <p class="eyebrow">Extension Chrome · gratuite · sans compte</p>
+        <h1>Focus<span class="hero-or"> or </span>Suffer</h1>
+        <p class="hero-lede">
+          Vous avez déjà installé un bloqueur de sites. Vous l'avez désactivé en deux clics,
+          un mardi après-midi, sans vraiment y penser.
+          <strong>Celui-ci est construit pour rendre ce mardi après-midi très désagréable.</strong>
+        </p>
+
+        <div class="cta-row">
+          <!-- TODO : remplacer par l'URL du Chrome Web Store après publication -->
+          <a class="btn btn-primary" href="#installer" data-store-link>
+            Installer sur Chrome
+          </a>
+          <a class="btn btn-ghost" href="#epreuve">Essayer le casse-tête</a>
+        </div>
+
+        <p class="hero-note" id="loiter">
+          Cette page est aussi une distraction, techniquement.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <!-- ═══ L'asymétrie ═══════════════════════════════════════════ -->
+      <section class="section" id="principe">
+        <p class="kicker">Le principe</p>
+        <h2>Un clic pour bloquer.<br />Un quart d'heure pour débloquer.</h2>
+        <p class="lead">
+          L'impulsion qui pousse à ouvrir un réseau social dure trente secondes. Celle qui
+          pousse à désactiver un bloqueur dure à peine plus longtemps. Il suffit donc de
+          rendre la seconde plus chère que la première. C'est toute l'idée, et il n'y en a
+          pas d'autre.
+        </p>
+
+        <div class="scales">
+          <div class="scale scale-easy">
+            <p class="scale-label">Bloquer un site</p>
+            <p class="scale-time">1 clic</p>
+            <ul>
+              <li>Vous êtes sur le site, vous cliquez sur l'icône. Terminé.</li>
+              <li><code>x.com</code> couvre aussi tous ses sous-domaines.</li>
+              <li>Les onglets déjà ouverts basculent tout seuls.</li>
+            </ul>
+          </div>
+
+          <div class="scale scale-hard">
+            <p class="scale-label">Le débloquer</p>
+            <p class="scale-time">≈ 2 h 15</p>
+            <ul>
+              <li><strong>20 secondes</strong> d'attente, sans rien à faire.</li>
+              <li>
+                <strong>Une phrase</strong> de cent caractères à recopier à l'identique.
+                Copier-coller désactivé, évidemment.
+              </li>
+              <li><strong>Trois multiplications</strong> de tête.</li>
+              <li>
+                <strong>Deux heures</strong> de délai de réflexion. Puis trente minutes pour
+                confirmer, sinon tout est à refaire.
+              </li>
+            </ul>
+            <p class="scale-foot">La moindre erreur renvoie au début. Avec un texte neuf.</p>
+          </div>
+        </div>
+
+        <p class="aside">
+          Renoncer, en revanche, prend un clic. L'asymétrie fonctionne dans les deux sens :
+          tout ce qui vous protège est instantané, tout ce qui vous expose coûte cher.
+        </p>
+      </section>
+
+      <!-- ═══ Démo du casse-tête ════════════════════════════════════ -->
+      <section class="section section-dark" id="epreuve">
+        <p class="kicker">Démonstration</p>
+        <h2>Essayez donc de vous débloquer</h2>
+        <p class="lead">
+          Voici l'épreuve exacte de l'extension, en vrai, ici même. Sauf qu'à la fin il ne
+          se passera rien — vous n'avez encore rien bloqué.
+        </p>
+
+        <div class="demo" id="demo">
+          <div class="demo-steps" role="list">
+            <span role="listitem" data-step="1">Respirer</span>
+            <span role="listitem" data-step="2">Recopier</span>
+            <span role="listitem" data-step="3">Calculer</span>
+          </div>
+          <div class="demo-body" id="demoBody"></div>
+          <p class="demo-error" role="alert" aria-live="polite" id="demoError"></p>
+          <div class="demo-actions">
+            <button type="button" class="btn btn-ghost btn-sm" id="demoQuit">
+              Laisser tomber
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" id="demoNext">
+              Commencer
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ Décors ════════════════════════════════════════════════ -->
+      <section class="section" id="decors">
+        <p class="kicker">Dix décors</p>
+        <h2>Puisque vous allez les voir souvent</h2>
+        <p class="lead">
+          Autant que ce soit joli. Dix décors en pixel art, dessinés à 384 × 216 pixels à la
+          main — enfin, au code — pour cette extension. Aucune image de banque d'images,
+          aucune question de licence.
+        </p>
+
+        <div class="gallery" id="gallery"></div>
+        <p class="gallery-hint">Cliquez pour changer le décor de cette page.</p>
+      </section>
+
+      <!-- ═══ Citations ═════════════════════════════════════════════ -->
+      <section class="section section-quote">
+        <p class="kicker">220 citations</p>
+        <blockquote class="big-quote" id="bigQuote"></blockquote>
+        <p class="lead center">
+          Sénèque, Marc Aurèle, Épictète, Pascal, Montaigne, La Fontaine, Thoreau. Et
+          quelques maximes écrites pour l'occasion, parce que les Stoïciens n'avaient rien
+          prévu sur le défilement infini.
+        </p>
+        <button type="button" class="btn btn-ghost btn-sm" id="quoteNext">
+          Une autre
+        </button>
+      </section>
+
+      <!-- ═══ Vie privée ════════════════════════════════════════════ -->
+      <section class="section" id="vieprivee">
+        <p class="kicker">Vie privée</p>
+        <h2>Zéro requête réseau. Pas « presque zéro ».</h2>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Aucun serveur</h3>
+            <p>
+              L'extension n'a pas de serveur à qui parler. Pas de compte, pas d'analytique,
+              pas de télémétrie. Votre liste reste dans votre navigateur.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Les citations sont embarquées</h3>
+            <p>
+              Elles auraient pu venir d'une API. Mais interroger un serveur à chaque blocage
+              lui enverrait l'horaire précis de vos moments de faiblesse. Non merci.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Le code est lisible</h3>
+            <p>
+              Tout est public, commenté, et vérifiable. Y compris les parties où l'on
+              explique pourquoi x.com résistait au blocage.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ FAQ ═══════════════════════════════════════════════════ -->
+      <section class="section section-dark" id="faq">
+        <p class="kicker">Questions légitimes</p>
+        <h2>Oui, on peut la contourner</h2>
+
+        <div class="faq">
+          <details>
+            <summary>Je peux désactiver l'extension depuis les réglages de Chrome, non ?</summary>
+            <p>
+              Oui. Aucune extension ne peut empêcher sa propre désactivation, et prétendre le
+              contraire serait mentir. Focus or Suffer est conçue contre l'impulsion de trente
+              secondes, pas contre une décision réfléchie. C'est un garde-fou, pas une
+              serrure. Si vous êtes déterminé à contourner, vous contournerez — mais vous
+              l'aurez fait exprès, et c'est déjà toute la différence.
+            </p>
+          </details>
+          <details>
+            <summary>Et si j'ai vraiment besoin d'aller sur un site bloqué ?</summary>
+            <p>
+              Une pause de 5, 10 ou 15 minutes, derrière le même casse-tête, deux fois par
+              jour maximum. La protection revient toute seule à l'échéance, même si vous
+              fermez Chrome. Oublier de la réactiver n'est pas une option qui vous est
+              offerte.
+            </p>
+          </details>
+          <details>
+            <summary>Pourquoi trois multiplications ? C'est un peu bête.</summary>
+            <p>
+              Parce que ça ne se fait pas machinalement. Vingt secondes d'attente laissent
+              retomber l'envie, la phrase à recopier occupe les mains, et le calcul mental
+              exige d'être là. À elles trois, ces étapes coûtent plus cher que l'onglet que
+              vous vouliez ouvrir. C'est mesurable : la plupart des gens abandonnent à la
+              deuxième étape, ce qui est précisément le résultat recherché.
+            </p>
+          </details>
+          <details>
+            <summary>Il y a un filtre pour le contenu adulte ?</summary>
+            <p>
+              Facultatif, activable d'un clic, avec une liste livrée dans l'extension. Deux
+              différences : les pauses ne le lèvent pas, et le désactiver passe par le
+              casse-tête puis le délai de réflexion. La liste est extensible à plusieurs
+              centaines de milliers de domaines si vous êtes du genre méthodique.
+            </p>
+          </details>
+          <details>
+            <summary>C'est payant ? Il y a une version pro ?</summary>
+            <p>
+              Non et non. Pas d'abonnement, pas de « débloquez les 10 décors premium », pas
+              de bandeau qui vous propose de passer à l'offre annuelle. L'extension ne peut
+              même pas vous envoyer de courriel : elle n'a pas de serveur.
+            </p>
+          </details>
+          <details>
+            <summary>Ça marche sur Firefox ou Safari ?</summary>
+            <p>
+              Pas encore. C'est écrit pour Chrome et les navigateurs qui partagent son moteur
+              d'extensions : Edge, Brave, Vivaldi, Opera. Chrome 101 minimum.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <!-- ═══ Installation ══════════════════════════════════════════ -->
+      <section class="section section-final" id="installer">
+        <h2>Bon.</h2>
+        <p class="lead center">
+          Vous avez lu une page entière sur un outil qui vous empêche de lire des pages
+          entières. Il est peut-être temps.
+        </p>
+
+        <div class="cta-row center">
+          <a class="btn btn-primary btn-lg" href="https://github.com/romlly/focus" data-store-link>
+            Installer sur Chrome — gratuit
+          </a>
+        </div>
+        <p class="install-note" id="storeNote">
+          En cours de validation par le Chrome Web Store — l'examen prend quelques semaines
+          pour les extensions qui demandent un accès étendu. En attendant, le
+          <a href="https://github.com/romlly/focus#installation">dépôt GitHub</a> explique
+          comment l'installer en deux minutes.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        <strong>Focus or Suffer</strong> · gratuit, sans compte, sans abonnement ·
+        <a href="https://github.com/romlly/focus">code source</a> ·
+        <a href="https://github.com/romlly/focus/blob/master/PRIVACY.md">confidentialité</a>
+        ·
+        <a
+          href="https://www.paypal.com/donate/?business=c.romlly%40gmail.com&amp;currency_code=EUR&amp;item_name=Focus+or+Suffer"
+          target="_blank"
+          rel="noopener noreferrer"
+          >soutenir</a
+        >
+      </p>
+      <p class="footer-fine">
+        Aucun cookie sur cette page. Aucun script de suivi. Rien à accepter, rien à refuser.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
