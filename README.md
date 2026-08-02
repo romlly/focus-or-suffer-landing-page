@@ -13,16 +13,16 @@ app.js          galerie, citations, compteur, démonstration du casse-tête
 img/            les dix décors de l'extension + l'icône
 ```
 
-## À faire après la publication sur le Chrome Web Store
+## Lien d'installation
 
-Une seule ligne à modifier, en tête de [app.js](app.js) :
+Les deux boutons « Installer sur Chrome » pointent vers la fiche du Chrome Web
+Store, écrite en clair dans [index.html](index.html) — un lien d'installation ne
+doit pas dépendre de l'exécution d'un script. Pour la changer, deux occurrences :
+le bouton du hero et celui du bloc final.
 
-```js
-const STORE_URL = "https://chromewebstore.google.com/detail/xxxxxxxx";
 ```
-
-Les boutons « Installer sur Chrome » pointeront alors dessus, et la note
-expliquant que l'extension est en cours de validation disparaîtra d'elle-même.
+https://chromewebstore.google.com/detail/focus-or-suffer-%E2%80%94-bloqueu/bbmbapbhcablpfdieckcbmcjihalcomn
+```
 
 ## À envisager : masquer l'adresse de la cagnotte
 

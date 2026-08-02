@@ -1,25 +1,12 @@
 /* Focus or Suffer — scripts de la page de présentation.
    Aucune dépendance, aucun appel réseau, aucun cookie. */
 
-/* ══════════════════════════════════════════════════════════════════
-   À FAIRE APRÈS PUBLICATION SUR LE CHROME WEB STORE
-   Renseigner l'URL ci-dessous : les boutons « Installer » pointeront
-   dessus et la note d'attente disparaîtra automatiquement.
-   ══════════════════════════════════════════════════════════════════ */
-const STORE_URL = null; // ex. "https://chromewebstore.google.com/detail/xxxxxxxx"
+/* L'adresse de la fiche du Chrome Web Store est écrite directement dans les
+   deux boutons « Installer » : un lien d'installation ne doit pas dépendre de
+   l'exécution d'un script. */
 
 const $ = (sel) => document.querySelector(sel);
 const rand = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
-
-/* ── Lien d'installation ─────────────────────────────────────────── */
-
-if (STORE_URL) {
-  document.querySelectorAll('[data-store-link]').forEach((a) => {
-    a.href = STORE_URL;
-  });
-  const note = $('#storeNote');
-  if (note) note.remove();
-}
 
 /* ── Le décor du hero, pilotable depuis la galerie ───────────────── */
 
